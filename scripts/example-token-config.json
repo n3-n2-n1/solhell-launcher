@@ -1,0 +1,15 @@
+{
+  "name": "DeflaMeme Token",
+  "symbol": "DMEME",
+  "description": "El primer meme token deflacionario de la plataforma SolHell HELL. Con una quema automática del 2% en cada transacción, este token se vuelve más escaso con el tiempo.",
+  "decimals": 6,
+  "burnRate": 200,
+  "tokensForSale": 1000000,
+  "tokensPerSol": 10000,
+  "launchDelayMinutes": 10,
+  "launchDurationDays": 7,
+  "image": "https://your-domain.com/dmeme-logo.png",
+  "website": "https://your-token-website.com",
+  "twitter": "https://twitter.com/dmeme_token",
+  "telegram": "https://t.me/dmeme_community"
+}

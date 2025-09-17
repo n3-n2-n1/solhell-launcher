@@ -1,0 +1,429 @@
+@import "tailwindcss";
+
+:root {
+  --background: #0a0a0a;
+  --foreground: #ededed;
+  --hell-red: #ff2d00;
+  --hell-orange: #ff4500;
+  --hell-yellow: #ffa500;
+  --hell-dark: #1a0000;
+  --hell-darker: #0d0000;
+}
+
+/* Tailwind theme variables */
+:root {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-geist-sans), Arial, Helvetica, sans-serif;
+  overflow-x: hidden;
+}
+
+/* Hell Background Animation */
+.hell-background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  background: linear-gradient(45deg, #0d0000 0%, #1a0000 25%, #2d0000 50%, #1a0000 75%, #0d0000 100%);
+  background-size: 400% 400%;
+  animation: hellGradient 8s ease infinite;
+}
+
+.hell-background::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: 
+    radial-gradient(circle at 20% 80%, rgba(255, 45, 0, 0.3) 0%, transparent 50%),
+    radial-gradient(circle at 80% 20%, rgba(255, 69, 0, 0.3) 0%, transparent 50%),
+    radial-gradient(circle at 40% 40%, rgba(255, 165, 0, 0.2) 0%, transparent 50%);
+  animation: hellGlow 6s ease-in-out infinite alternate;
+}
+
+.hell-background::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: 
+    repeating-linear-gradient(
+      0deg,
+      transparent,
+      transparent 2px,
+      rgba(255, 45, 0, 0.03) 2px,
+      rgba(255, 45, 0, 0.03) 4px
+    ),
+    repeating-linear-gradient(
+      90deg,
+      transparent,
+      transparent 2px,
+      rgba(255, 69, 0, 0.02) 2px,
+      rgba(255, 69, 0, 0.02) 4px
+    );
+  animation: pixelatedLava 10s linear infinite;
+}
+
+@keyframes hellGradient {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+@keyframes hellGlow {
+  0% { opacity: 0.3; }
+  100% { opacity: 0.7; }
+}
+
+@keyframes pixelatedLava {
+  0% { transform: translateY(0px); }
+  100% { transform: translateY(-4px); }
+}
+
+/* Lava particles animation */
+.lava-particles {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  pointer-events: none;
+}
+
+.lava-particle {
+  position: absolute;
+  width: 4px;
+  height: 4px;
+  background: #ff2d00;
+  border-radius: 50%;
+  animation: lavaFloat 8s linear infinite;
+}
+
+.lava-particle:nth-child(2n) {
+  background: #ff4500;
+  animation-duration: 12s;
+}
+
+.lava-particle:nth-child(3n) {
+  background: #ffa500;
+  animation-duration: 10s;
+}
+
+@keyframes lavaFloat {
+  0% {
+    transform: translateY(100vh) translateX(0px);
+    opacity: 0;
+  }
+  10% {
+    opacity: 1;
+  }
+  90% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(-100px) translateX(100px);
+    opacity: 0;
+  }
+}
+
+/* Custom scrollbar - Hell theme */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #1a0000;
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, #ff2d00 0%, #ff4500 100%);
+  border-radius: 4px;
+  box-shadow: 0 0 10px rgba(255, 45, 0, 0.5);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(180deg, #ff4500 0%, #ffa500 100%);
+  box-shadow: 0 0 15px rgba(255, 69, 0, 0.7);
+}
+
+/* Range slider styling - Hell theme */
+.slider::-webkit-slider-thumb {
+  appearance: none;
+  height: 20px;
+  width: 20px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #ff2d00 0%, #ff4500 100%);
+  cursor: pointer;
+  border: 2px solid #1a0000;
+  box-shadow: 0 0 10px rgba(255, 45, 0, 0.5);
+}
+
+.slider::-moz-range-thumb {
+  height: 20px;
+  width: 20px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #ff2d00 0%, #ff4500 100%);
+  cursor: pointer;
+  border: 2px solid #1a0000;
+  box-shadow: 0 0 10px rgba(255, 45, 0, 0.5);
+}
+
+/* Wallet adapter button overrides - Hell theme */
+.wallet-adapter-button {
+  background: linear-gradient(135deg, #ff2d00 0%, #ff4500 50%, #ffa500 100%) !important;
+  border: none !important;
+  border-radius: 0.5rem !important;
+  font-weight: 500 !important;
+  transition: all 0.2s !important;
+  box-shadow: 0 4px 15px rgba(255, 45, 0, 0.3) !important;
+}
+
+.wallet-adapter-button:hover {
+  transform: scale(1.05) !important;
+  box-shadow: 0 6px 20px rgba(255, 45, 0, 0.5) !important;
+}
+
+.wallet-adapter-modal {
+  background: rgba(26, 0, 0, 0.95) !important;
+  backdrop-filter: blur(10px) !important;
+}
+
+.wallet-adapter-modal-container {
+  background: linear-gradient(135deg, #1a0000 0%, #2d0000 100%) !important;
+  border: 1px solid #ff2d00 !important;
+  border-radius: 1rem !important;
+  box-shadow: 0 0 30px rgba(255, 45, 0, 0.3) !important;
+}
+
+.wallet-adapter-modal-title {
+  color: #ffa500 !important;
+  text-shadow: 0 0 10px rgba(255, 165, 0, 0.5) !important;
+}
+
+.wallet-adapter-modal-list {
+  background: transparent !important;
+}
+
+.wallet-adapter-modal-list-item {
+  background: rgba(255, 45, 0, 0.1) !important;
+  border: 1px solid rgba(255, 69, 0, 0.3) !important;
+  border-radius: 0.5rem !important;
+  margin-bottom: 0.5rem !important;
+  transition: all 0.2s !important;
+}
+
+.wallet-adapter-modal-list-item:hover {
+  background: rgba(255, 45, 0, 0.2) !important;
+  border-color: #ff4500 !important;
+  box-shadow: 0 0 15px rgba(255, 69, 0, 0.3) !important;
+}
+
+/* Line clamp utility */
+.line-clamp-2 {
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  line-clamp: 2;
+}
+
+/* Gradient text - Hell theme */
+.gradient-text {
+  background: linear-gradient(135deg, #ff2d00 0%, #ff4500 50%, #ffa500 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.hell-gradient-text {
+  background: linear-gradient(135deg, #ff2d00 0%, #ff4500 50%, #ffa500 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-shadow: 0 0 30px rgba(255, 45, 0, 0.5);
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.5s ease-out;
+}
+
+@keyframes pulse-slow {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+}
+
+.animate-pulse-slow {
+  animation: pulse-slow 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+/* Glass effect - Hell theme */
+.glass {
+  background: rgba(255, 45, 0, 0.05);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 69, 0, 0.2);
+}
+
+.hell-glass {
+  background: rgba(26, 0, 0, 0.7);
+  backdrop-filter: blur(15px);
+  border: 1px solid rgba(255, 45, 0, 0.3);
+  box-shadow: 0 8px 32px rgba(255, 45, 0, 0.1);
+}
+
+.hell-card {
+  background: linear-gradient(135deg, rgba(26, 0, 0, 0.8) 0%, rgba(45, 0, 0, 0.6) 100%);
+  backdrop-filter: blur(15px);
+  border: 1px solid rgba(255, 45, 0, 0.3);
+  border-radius: 1rem;
+  box-shadow: 0 8px 32px rgba(255, 45, 0, 0.2);
+  transition: all 0.3s ease;
+}
+
+.hell-card:hover {
+  border-color: rgba(255, 69, 0, 0.5);
+  box-shadow: 0 12px 40px rgba(255, 45, 0, 0.3);
+  transform: translateY(-2px);
+}
+
+/* Hell button styles */
+.hell-button {
+  background: linear-gradient(135deg, #ff2d00 0%, #ff4500 50%, #ffa500 100%);
+  border: none;
+  border-radius: 0.5rem;
+  color: white;
+  font-weight: 600;
+  padding: 0.75rem 1.5rem;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(255, 45, 0, 0.3);
+  position: relative;
+  overflow: hidden;
+}
+
+.hell-button::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  transition: left 0.5s;
+}
+
+.hell-button:hover::before {
+  left: 100%;
+}
+
+.hell-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(255, 45, 0, 0.5);
+}
+
+.hell-button:active {
+  transform: translateY(0);
+}
+
+/* Monolito styles */
+.monolith {
+  background: linear-gradient(135deg, rgba(26, 0, 0, 0.9) 0%, rgba(45, 0, 0, 0.7) 100%);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 45, 0, 0.3);
+  border-radius: 1rem;
+  box-shadow: 
+    0 8px 32px rgba(255, 45, 0, 0.2),
+    inset 0 1px 0 rgba(255, 69, 0, 0.1);
+}
+
+.monolith-header {
+  background: rgba(0, 0, 0, 0.3);
+  border-bottom: 1px solid rgba(255, 69, 0, 0.2);
+}
+
+/* Terminal styles */
+.terminal-text {
+  font-family: 'Courier New', monospace;
+  color: #ffa500;
+  text-shadow: 0 0 10px rgba(255, 165, 0, 0.5);
+}
+
+.terminal-prompt {
+  color: #00ff00;
+  text-shadow: 0 0 10px rgba(0, 255, 0, 0.5);
+}
+
+/* 3D Effects */
+.perspective-3d {
+  perspective: 1000px;
+}
+
+.preserve-3d {
+  transform-style: preserve-3d;
+}
+
+/* Enhanced glass effects */
+.hell-glass-enhanced {
+  background: linear-gradient(135deg, rgba(26, 0, 0, 0.8) 0%, rgba(45, 0, 0, 0.6) 100%);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 45, 0, 0.3);
+  box-shadow: 
+    0 8px 32px rgba(255, 45, 0, 0.2),
+    inset 0 1px 0 rgba(255, 69, 0, 0.1);
+}
+
+/* Background color for canvas */
+.bg-background {
+  background: linear-gradient(45deg, #0d0000 0%, #1a0000 25%, #2d0000 50%, #1a0000 75%, #0d0000 100%);
+  background-size: 400% 400%;
+  animation: hellGradient 8s ease infinite;
+}
+
+/* Ensure proper z-index stacking */
+.z-0 {
+  z-index: 0;
+}
+
+.z-10 {
+  z-index: 10;
+}
+
+.z-20 {
+  z-index: 20;
+}
+
+.z-30 {
+  z-index: 30;
+}
+
+.z-50 {
+  z-index: 50;
+}

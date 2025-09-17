@@ -1,0 +1,29 @@
+{
+  "name": "solhell-hell-scripts",
+  "version": "1.0.0",
+  "description": "Scripts para crear y gestionar tokens en SolHell HELL",
+  "main": "index.js",
+  "scripts": {
+    "create-hell": "node create-hell-token.js",
+    "launch-token": "node launch-deflationary-token.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "@solana/web3.js": "^1.87.6",
+    "@solana/spl-token": "^0.3.11",
+    "@metaplex-foundation/mpl-token-metadata": "^3.2.1",
+    "@coral-xyz/anchor": "^0.30.0"
+  },
+  "devDependencies": {
+    "@types/node": "^20.10.0"
+  },
+  "keywords": [
+    "solana",
+    "deflationary",
+    "token",
+    "defi",
+    "crypto"
+  ],
+  "author": "SolHell HELL Team",
+  "license": "MIT"
+}

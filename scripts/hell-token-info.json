@@ -1,0 +1,12 @@
+{
+  "network": "devnet",
+  "mint": "7BwsNQH3QTBvqqb9GbFwmb8mVmfT5X6SkM7HaddbAkdT",
+  "decimals": 6,
+  "initialSupply": 100000000,
+  "createdAt": "2025-09-16T04:07:11.224Z",
+  "creator": "4qhqUZNJsPA2U3CkVaahzwepLpUfTEPvTy5EDXtkThDS",
+  "tokenAccount": "9t9V3e7FQKj1VoWiFJqWwGZvZEqPv7R4ptM9ssc5XzHS",
+  "name": "HELL Token",
+  "symbol": "HELL",
+  "description": "Token nativo de la plataforma SolHell HELL para staking y rewards"
+}
